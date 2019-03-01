@@ -7,12 +7,29 @@ use Illuminate\Support\Facades\Cache;
 
 trait Cachable
 {
-    //public $cacheTtl = null;
+    /**
+     * Cache TTL in seconds. Defaults indefinitely
+     *
+     * @var int $cacheTtl
+     */
 
-    //public $cacheStore = null;
+    /**
+     * Cache store name. Defaults default cache connection
+     *
+     * @var string $cacheStore
+     */
 
-    //public $cacheTags;
+    /**
+     * Cache tags. Defaults no tags
+     *
+     * @var array $cacheTags
+     */
 
+    /**
+     * Boot trait for a model.
+     *
+     * @return void
+     */
     public static function bootCachable()
     {
         static::created(function ($model) {
@@ -32,13 +49,18 @@ trait Cachable
      * Create a new Eloquent cache query builder for the model.
      *
      * @param  \Illuminate\Database\Query\Builder $query
-     * @return \App\Traits\Models\Builder|static
+     * @return \Alex433\LaravelEloquentCache\Builder|static
      */
     public function newEloquentBuilder($query)
     {
         return new Builder($query);
     }
 
+    /**
+     * Remove an item from the cache.
+     *
+     * @return $this
+     */
     public function forget()
     {
         $this->getCache()
@@ -47,6 +69,11 @@ trait Cachable
         return $this;
     }
 
+    /**
+     * Get cache instance.
+     *
+     * @return \Illuminate\Support\Facades\Cache
+     */
     public function getCache()
     {
         $cache = Cache::store($this->cacheStore);
@@ -58,6 +85,12 @@ trait Cachable
         return $cache;
     }
 
+    /**
+     * Get cache key for the model.
+     *
+     * @param  int|string $identifier
+     * @return string
+     */
     public function getCacheKey($identifier)
     {
         return $this->getTable() . '.' . $identifier;

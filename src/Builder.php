@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder as BaseBuilder;
 class Builder extends BaseBuilder
 {
     /**
-     * Get the hydrated models without eager loading.
+     * Get the hydrated models from cache.
      *
      * @param  array $columns
      * @return \Illuminate\Database\Eloquent\Model[]|static[]
@@ -29,6 +29,11 @@ class Builder extends BaseBuilder
         return parent::getModels($columns);
     }
 
+    /**
+     * Check whether the request is only by primary key.
+     *
+     * @return bool
+     */
     protected function isKeyQuery()
     {
         return count($this->query->wheres) == 1
@@ -40,6 +45,11 @@ class Builder extends BaseBuilder
             );
     }
 
+    /**
+     * Remove all model items from the cache.
+     *
+     * @return bool
+     */
     public function flushCache()
     {
         if (!$this->model->cacheTags) {

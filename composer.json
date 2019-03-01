@@ -1,5 +1,5 @@
 {
-    "name": "alex/laravel-eloquent-cache",
+    "name": "alex433/laravel-eloquent-cache",
     "description": "Laravel's Eloquent models caching",
     "keywords": ["laravel", "eloquent", "cache", "model"],
     "license": "MIT",
@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "php": "^7.1.3",
         "illuminate/database": "^5.7",
         "illuminate/support": "^5.7"
     },
