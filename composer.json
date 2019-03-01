@@ -1,0 +1,22 @@
+{
+    "name": "alex/laravel-eloquent-cache",
+    "description": "Laravel's Eloquent models caching",
+    "keywords": ["laravel", "eloquent", "cache", "model"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Berezkin",
+            "email": "alexey.berezkin@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^5.7",
+        "illuminate/support": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alex433\\LaravelEloquentCache\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
