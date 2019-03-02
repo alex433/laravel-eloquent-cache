@@ -31,10 +31,12 @@ class Post extends Model
 }
 
 ```
-In next cases cache query will be executed instead SQL queries. Also it do the trick for "belongs To" relations.
+In next cases cache queries will be executed instead SQL queries. Also it do the trick for "belongs To" relations.
 ```php
-Post::find($id);
-Post::where('id', $id)->first();
+Post::find($id); // findOrFail(), findOrNew()
+Post::where('id', $id)->first(); // firstOrFail(), firstOrNew(), firstOrCreate(), firstOr()
+Post::whereId($id)->first();
+Post::where('id', $id)->get();
 ```
 
 You can optionally define the following properties to change default trait behavior.
@@ -90,5 +92,9 @@ User::find($id)->forget()->refresh();
 When cache tags is used, you can flush the cache for a model, use the `flushCache` method.
 
 ```php
-User::flushCache()
+User::flushCache();
+
+// or
+
+User::find($id)->flushCache();
 ```
