@@ -1,5 +1,10 @@
 # Laravel Eloquent cache
 
+[![Total Downloads](https://poser.pugx.org/alex433/laravel-eloquent-cache/downloads)](https://packagist.org/packages/alex433/laravel-eloquent-cache)
+[![Latest Stable Version](https://poser.pugx.org/alex433/laravel-eloquent-cache/version)](https://packagist.org/packages/alex433/laravel-eloquent-cache)
+[![Latest Unstable Version](https://poser.pugx.org/alex433/laravel-eloquent-cache/v/unstable)](//packagist.org/packages/alex433/laravel-eloquent-cache)
+[![License](https://poser.pugx.org/alex433/laravel-eloquent-cache/license)](https://packagist.org/packages/alex433/laravel-eloquent-cache)
+
 Laravel's Eloquent models caching
 
 ## Installation
